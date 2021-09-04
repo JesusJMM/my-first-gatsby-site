@@ -8,7 +8,7 @@ const Blog = ({data}) => {
     <Layout pageTitle="Blog">
       <ul>
       {data.allFile.nodes.map(node => (
-        <li key={node.name}>{node.name}</li>
+        <li key={node.id}>{node.name}</li>
         ))}
       </ul>
     </Layout>
@@ -20,6 +20,7 @@ query {
   allFile(filter: {sourceInstanceName: {eq: "blog"}}) {
     nodes {
       name
+      id
     }
   }
 }
